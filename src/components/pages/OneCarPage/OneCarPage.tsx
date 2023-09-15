@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import styles from "./OneCarPage.module.css";
-import RentForm from './RentForm';
+import RentForm from "./RentForm";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getCarById, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
+import {
+  getCarById,
+  patchReviews,
+  addReviews,
+  fetchReviews,
+  deletedReviews,
+} from "../../../features/oneCarPageSlice";
 import { AppDispatch, RootState } from "../../../app/store";
+import { Carousel, CarouselItem } from "react-bootstrap";
 
 const OneCarPage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -14,25 +21,33 @@ const OneCarPage = () => {
   const [review, setReviews] = React.useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState({
-    city: '',
-    rentalDate: '',
-    phoneNumber: '',
-    paymentMethod: '',
+    city: "",
+    rentalDate: "",
+    phoneNumber: "",
+    paymentMethod: "",
   });
 
   const openModal = () => {
-    setIsModalOpen(true);
+    if(token) {
+      setIsModalOpen(true);
+    }else {
+      alert('Сначала авторизируйтесь!')
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange =(fieldsFilled, setFieldsFilled) => (e: React.FormEvent) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
+    });
+    setFieldsFilled({
+      ...fieldsFilled,
+      [name]: !!value, // Поле заполнено, если его значение не пустое
     });
   };
 

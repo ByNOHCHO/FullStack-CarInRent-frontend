@@ -1,7 +1,3 @@
-.container {
-  
-}
-
 .formGroup {
   margin-bottom: 10px;
 }
@@ -87,5 +83,4 @@ select:focus {
   scale: 1.05;
   transition: 0.1s;
 }
-
 

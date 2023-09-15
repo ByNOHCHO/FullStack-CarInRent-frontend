@@ -18,7 +18,7 @@ interface CarCardProps {
 const CarCard: React.FC<CarCardProps> = ({ img, name, mark, price, description, capacity, carsId }) => {
   const dispatch = useDispatch()
 
-  const shortDescription = description.split(' ').slice(0, 10).join(' ') + '...';
+  const shortDescription = description.split(' ').slice(0, 5).join(' ') + '...';
 
   const handleAddToCompare = (id) => {
     dispatch(addCarToCompare(id))

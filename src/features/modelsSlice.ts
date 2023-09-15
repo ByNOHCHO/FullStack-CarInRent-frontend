@@ -10,6 +10,7 @@ type Model = {
   mark: string;
   description: string;
   capacity: number;
+  isRent: boolean;
   
 }
 
@@ -25,6 +26,7 @@ const initialState: ModelsState = {
   status: 'idle',
   error: null,
 };
+
 
 export const fetchModels = createAsyncThunk<Model[], void>(
   'models/fetchModels',
@@ -55,7 +57,8 @@ const modelsSlice = createSlice({
       .addCase(fetchModels.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload ? action.payload.toString() : 'Network Error';
-      });
+      })
+      
   },
 });
 

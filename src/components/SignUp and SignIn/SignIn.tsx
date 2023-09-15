@@ -5,11 +5,13 @@ import { authSignIn } from "../../features/applicationSlise";
 import styles from "./Sign.module.css";
 import { useNavigate } from "react-router-dom";
 import { RootState } from "../../app/store";
+import Spinner from '../pages/CatalogPage/Spinner';
 
 const SignIn = () => {
   const [login, setLogin] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const token = useSelector((state: RootState) => state.application.token);
+  const signin = useSelector((state: RootState) => state.application.signingIn);
   const error = useSelector((state: RootState) => state.application.error as string)
 
   const dispatch = useDispatch<AppDispatch>();
@@ -20,6 +22,10 @@ const SignIn = () => {
     dispatch(authSignIn({ _id: "", password, login, email: "" }));
 
   };
+  if (signin === true) {
+    return <Spinner />;
+  }
+
   if (token) {
     navigate("/");
   }

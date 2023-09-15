@@ -1,8 +1,34 @@
-import styles from "./Rent.module.css";
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from "react";
 import ReactModal from 'react-modal';
 ReactModal.setAppElement('#root');
 
+
+import { RootState, AppDispatch } from '../../../app/store';
+import styles from "./Rent.module.css";
+import { addCarToUser } from '../../../features/userSlice';
+
+
 const RentForm = ({ isOpen, closeModal, formData, handleInputChange }) => {
+
+  const dispatch = useDispatch<AppDispatch>();
+  const userData = useSelector((state: RootState) => state.user);
+  const [fieldsFilled, setFieldsFilled] = useState({
+    city: true,
+    rentalDate: true,
+    phoneNumber: true,
+    paymentMethod: true,
+  });
+  
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!formData.city || !formData.rentalDate || !formData.phoneNumber || !formData.paymentMethod) {
+    alert('Пожалуйста, заполните все поля');
+    return;
+  }
+    dispatch(addCarToUser(userData));
+  }
   return (
   <div className={styles.container}>
     <ReactModal

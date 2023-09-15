@@ -11,7 +11,7 @@ const Profile = () => {
   const dispatch = useDispatch<AppDispatch>()
   const token = useSelector((state: RootState) => state.application.token)
   const navigate = useNavigate()
-
+  const car
 
 
   useEffect(() => {

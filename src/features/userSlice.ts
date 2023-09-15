@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import axios from "axios";
+import axios from "axios";
 
 type User = {
   _id?: string;
   login: string;
   password: string;
   email: string;
+  
 };
 
 type userInfoState = {
@@ -21,6 +22,20 @@ const userState: userInfoState = {
   loading: false,
   token: localStorage.getItem("token"),
 };
+
+export const addCarToUser = createAsyncThunk(
+  'user/addCarToUser',
+  async ({ userId, carId }, { rejectWithValue }) => {
+    try {
+      const response = await axios.patch(`/user/${userId}`, {
+        carId: carId,
+      });
+      return response.data; // Если сервер возвращает какие-то данные после успешной операции
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
 
 export const oneUser = createAsyncThunk(
   "user/fetchUser",
@@ -79,7 +94,20 @@ export const userSlice = createSlice({
         state.users = state.users.filter((item) => item._id !== action.payload);
         state.error = null;
         state.loading = false;
-      });
+      })
+      .addCase(addCarToUser.pending, (state) => {
+        state.error = null;
+        state.loading = true;
+      })
+      .addCase(addCarToUser.fulfilled, (state, action) => {
+        state.error = null;
+        state.users = action.payload;
+        state.loading = false;
+      })
+      .addCase(addCarToUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.loading = false;
+      })
   },
 });
 
