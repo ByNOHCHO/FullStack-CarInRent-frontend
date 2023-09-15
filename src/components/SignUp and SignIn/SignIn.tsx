@@ -27,21 +27,22 @@ const SignIn = () => {
   return (
     <div className={styles.author}>
       <div className={styles.authorinput}>
-      {error && <div className={styles.error}>Неверный логин или пароль</div>}
-        <form onSubmit={handleSignUp}>
+        {error && <div className={styles.error}>Неверный логин или пароль</div>}
+        <form className={styles.form} onSubmit={handleSignUp}>
+          <h2 id={styles.h2}>Авторизация</h2>
           <input
             type="text"
             value={login}
-            placeholder="name"
+            placeholder="Логин..."
             onChange={(e) => setLogin(e.target.value)}
           />
           <input
             type="password"
             value={password}
-            placeholder="password"
+            placeholder="Пароль..."
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit">login</button>
+          <button type="submit">Войти</button>
         </form>
       </div>
     </div>

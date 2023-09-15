@@ -1,8 +1,8 @@
 import React from 'react'
 import styles from './Footer.module.css';
-import inst from './instagram_ig_insta_icon_190937.svg'
-import email from './email-envelope-outline-shape-with-rounded-corners_icon-icons.com_56530.svg'
-import tg from './telegram_icon_131945.svg'
+import inst from './instagram.svg'
+import email from './email.svg'
+import tg from './telegram.svg'
 
 const Footer = () => {
   return (

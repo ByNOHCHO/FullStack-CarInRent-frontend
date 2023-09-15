@@ -70,7 +70,7 @@ const SignUp = () => {
     <div className={styles.author}>
       <div className={styles.authorinput}>
         <form className={styles.form} onSubmit={handleSignUp}>
-          <h2>Регистрация</h2>
+          <h2 id={styles.h2}>Регистрация</h2>
           <input
             type="text"
             value={login}
@@ -94,7 +94,7 @@ const SignUp = () => {
             onChange={(e) => handleEmail(e)}
           />
           {(emailDirty && emailError) && <div className={styles.error}>{emailError}</div>}
-          <button disabled={!formValid} type="submit">Registration</button>
+          <button disabled={!formValid} type="submit">Зарегистрироваться</button>
         </form>
         <div className={styles.but}>
           Уже есть аккаунт? <Link to="/SignIn" className={styles.sign}>Войти</Link>

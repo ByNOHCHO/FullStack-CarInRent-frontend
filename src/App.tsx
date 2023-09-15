@@ -33,15 +33,18 @@ const App = () => {
           <Route path='/marks/:markId' element={<OneMarkPage />} />
           <Route path="/cars/:carId" element={<OneCarPage />} />
           <Route path='/marks' element={<Markpage />} />
-          <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/SignIn' element={<SignIn />} />
           <Route path='/Catalog' element={<Mainpage />} />
           <Route path='/Profile' element={<Profile />} />
-          {/* <Route path='/cars/compare' element={<CompareCar/>}/> */}
+          <Route path='/cars/compare' element={<CompareCar/>}/>
+          <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/SignIn' element={<SignIn />} />
           <Route path='/video' Component={VideoPlayer}></Route>
         </Routes>
       </div>
       <Footer />
+      <Routes>
+
+      </Routes>
     </div>
   )
 }

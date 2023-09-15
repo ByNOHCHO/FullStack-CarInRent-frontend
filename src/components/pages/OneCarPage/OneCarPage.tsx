@@ -3,7 +3,7 @@ import styles from "./OneCarPage.module.css";
 import RentForm from './RentForm';
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getCarById, patchReviews, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
+import { getCarById, addReviews, fetchReviews, deletedReviews } from "../../../features/oneCarPageSlice";
 import { AppDispatch, RootState } from "../../../app/store";
 
 const OneCarPage = () => {
@@ -94,16 +94,8 @@ const OneCarPage = () => {
             width={500}
             src={`http://localhost:4444/assets/img/${cars.img}`}
             alt="car"
+            className={styles.img}
           />
-                     <iframe
-              title="YouTube Video"
-              width="300"
-              height="300"
-              src={cars.video}
-              frameBorder="0"
-              allowFullScreen
-            ></iframe>
-          <button onClick={openModal}>Арендовать</button>
           <RentForm
             isOpen={isModalOpen}
             closeModal={closeModal}
@@ -113,11 +105,25 @@ const OneCarPage = () => {
         </div>
         <div className={styles.carInfo}>
           <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
-          <div className={styles.carPrice}>{`Цена: ${cars.price}`}</div>
+          <div className={styles.carPrice}>{`Цена: ${cars.price} $`}</div>
           <div className={styles.carDescription}>{`Описание: ${cars.description}`}</div>
           <div className={styles.carCapacity}>{`Вместительность: ${cars.capacity}`}</div>
+          <button onClick={openModal} className={styles.rentButton}>Арендовать</button>
         </div>
       </div>
+
+      <div>
+      <iframe
+            title="YouTube Video"
+            width="300"
+            height="300"
+            src={cars.video}
+            allowFullScreen
+            className={styles.video}
+          ></iframe>
+      </div>
+
+
 
       <div className={styles.reviews}>
         <span>Коментарии</span>

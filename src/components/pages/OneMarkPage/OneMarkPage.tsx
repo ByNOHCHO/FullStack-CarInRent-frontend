@@ -41,15 +41,7 @@ const OneMarkPage = () => {
                             </div>
                             <div>Вместительность: {car.capacity}</div>
                         </div>
-                        <Link to={`/cars/compare/${car._id}`} >
-                            <div className={styles.compareIconContainer}>
-                                <Tooltip title="Сравнить" placement="top">
-                                    <IconButton onClick={handleCompareClick}>
-                                        <CompareIcon className={styles.compareIcon} />
-                                    </IconButton>
-                                </Tooltip>
-                            </div>
-                        </Link>
+                        
                         <Link to={`/cars/${car._id}`} className={styles.link}>Перейти к модели</Link>
                     </div>
                 )
