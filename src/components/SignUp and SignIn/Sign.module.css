@@ -1,24 +1,32 @@
 .author {
   margin: auto;
-  -webkit-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
-  -moz-box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
-  box-shadow: -16px -12px 14px 5px rgba(34, 60, 80, 0.18);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 20px 0px rgba(34, 60, 80, 0.2);
   width: 400px;
   flex-direction: column;
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  height: 60%;
 }
+
+#h2 {
+  margin-bottom: 20px;
+}
+
 .authorinput {
   width: 300px;
-  height: 350px;
   margin: auto;
-  left: 43%;
+  left: 50%;
   padding: 50px;
 }
+
 .authorinput input {
   margin-top: 5px;
   height: 30px;
   border-radius: 5px;
-  border: 1px solid black;
 }
 .authorinput input::placeholder {
   font-size: 20px;
@@ -46,5 +54,10 @@
   font-size: 14px;
 }
 
-.form {
+.form input {
+  margin-bottom: 5px;
+}
+
+.form button {
+  width: 180px;
 }

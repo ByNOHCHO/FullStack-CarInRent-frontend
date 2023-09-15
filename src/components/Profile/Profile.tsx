@@ -44,13 +44,19 @@ const Profile = () => {
     <div className={styles.container}>
       <h2 className={styles.headerText}>Ваш Личный кабинет</h2>
       <div className={styles.card}>
-        <div>
-          <p className={styles.userName}>Никнейм: {user.login}</p>
+        <div className={styles.block}>
+          <p className={styles.name}>Никнейм: </p>
+          <p className={styles.userName}>{user.login}</p>
         </div>
-        <div>
-          <p className={styles.userEmail}>Ваш Email: {user.email}</p>
+        <div className={styles.block}>
+          <p className={styles.name}>Ваш Email: </p>
+          <p className={styles.userEmail}>{user.email}</p>
         </div>
         <button onClick={() => handleDelete(user._id)} className={styles.deletedUserButton}>Удалить пользователя</button>
+      </div>
+
+      <div>
+        {user.carInRent}
       </div>
     </div>
   );

@@ -15,6 +15,9 @@ const Markpage = () => {
         setSearchQuery(e.target.value);
     };
 
+    const [isActive, setIsActive] = useState<boolean>(false);
+
+
     const filteredCars = marks.filter(mark =>
         mark.mark.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -35,9 +38,11 @@ const Markpage = () => {
                 <input
                     type="text"
                     value={searchQuery}
-                    placeholder='Выберите марку'
+                    placeholder='Выберите марку...'
                     onChange={handleSearchChange}
-                    className={styles.findMark_input} />
+                    className={`${styles.searchInput} ${isActive ? styles.active : ''}`} 
+                    onFocus={() => setIsActive(true)}
+                    onBlur={() => setIsActive(false)}/>
             </div>
             <div className={styles.cont}>
                 <div className={styles.marksContainer_cont}>

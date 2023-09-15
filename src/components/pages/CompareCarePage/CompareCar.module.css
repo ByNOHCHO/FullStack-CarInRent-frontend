@@ -1,0 +1,46 @@
+@keyframes maintenance {
+    0% {
+     opacity: 1;
+     transform: scale(1);
+     }
+     50% {
+     opacity: 0.5;
+     transform: scale(1.1);
+     }
+     100% {
+     opacity: 1;
+     transform: scale(1);
+     }
+    }
+    
+    /* Стили для родительского контейнера */
+    .maintenanceContainer {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+     height: 50vh;
+    }
+    
+    /* Стили для текста */
+    .maintenanceText {
+     animation: maintenance 2s infinite;
+     text-align: center;
+    }
+    
+    /* Стили для контейнера с иконками */
+    .maintenanceIcons {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin-top: 20px;
+     animation: maintenance 2s infinite;
+
+    }
+    
+    /* Стили для иконок */
+    .maintenanceIcon {
+     width: 50px;
+     height: 50px;
+     margin: 0 10px;
+    }

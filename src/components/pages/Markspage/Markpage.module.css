@@ -67,12 +67,22 @@
   box-sizing: border-box;
 }
 
-.findMark_input {
+.searchInput {
   width: 100%;
+  margin-bottom: 30px;
+  font-size: 16px;
+  padding: 10px;
   border-radius: 10px;
-  padding: 5px 10px;
+  outline: none;
+  border: none;
   box-sizing: border-box;
-  margin-bottom: 40px;
-  height: 50px;
-  border: 1px solid blue;
+  transition: background-color 0.3s;
+  box-shadow: inset 1px 0px 8px 1px rgba(34, 60, 80, 0.19);
 }
+
+/* Стили для активного (focused) инпута */
+.active {
+  transition: 0.1;
+  background-color: #f5f5f5; /* Любой подходящий вам цвет фона */
+}
+

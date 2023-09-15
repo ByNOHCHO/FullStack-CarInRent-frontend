@@ -105,34 +105,12 @@ const OneCarPage = () => {
     <div className={styles.oneCarPage}>
       <div className={styles.car}>
         <div className={styles.carImg}>
-          <Carousel>
-          <CarouselItem className={styles.carusel}>
-              <ul className={styles.hoverEffectScale}>
-                <li>
-                  <img
-                    className="d-block w-100"
-                    src={`http://localhost:4444/assets/img/${cars.img}`}
-                    alt="Second slide"
-                  />
-                </li>
-              </ul>
-            </CarouselItem>
-            <CarouselItem className={styles.carusel}>
-              <ul className={styles.hoverEffectScale}>
-                <li>
-                  <iframe
-                    title="YouTube Video"
-                    width="300"
-                    height="300"
-                    src={cars.video}
-                    frameBorder="0"
-                    allowFullScreen
-                  ></iframe>
-                </li>
-              </ul>
-            </CarouselItem>
-          </Carousel>
-          <button onClick={openModal}>Арендовать</button>
+          <img
+            width={500}
+            src={`http://localhost:4444/assets/img/${cars.img}`}
+            alt="car"
+            className={styles.img}
+          />
           <RentForm
             isOpen={isModalOpen}
             closeModal={closeModal}
@@ -142,15 +120,25 @@ const OneCarPage = () => {
         </div>
         <div className={styles.carInfo}>
           <div className={styles.carName}>{`Модель: ${cars.name}`}</div>
-          <div className={styles.carPrice}>{`Цена: ${cars.price}$`}</div>
-          <div
-            className={styles.carDescription}
-          >{`Описание: ${cars.description}`}</div>
-          <div
-            className={styles.carCapacity}
-          >{`Вместительность: ${cars.capacity}`}</div>
+          <div className={styles.carPrice}>{`Цена: ${cars.price} $`}</div>
+          <div className={styles.carDescription}>{`Описание: ${cars.description}`}</div>
+          <div className={styles.carCapacity}>{`Вместительность: ${cars.capacity}`}</div>
+          <button onClick={openModal} className={styles.rentButton}>Арендовать</button>
         </div>
       </div>
+
+      <div>
+      <iframe
+            title="YouTube Video"
+            width="300"
+            height="300"
+            src={cars.video}
+            allowFullScreen
+            className={styles.video}
+          ></iframe>
+      </div>
+
+
 
       <div className={styles.reviews}>
         <span>Коментарии</span>
